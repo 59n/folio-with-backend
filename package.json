@@ -1,0 +1,23 @@
+{
+  "name": "folio-stack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack Portfolio (Next.js frontend + Fastify/Prisma backend)",
+  "scripts": {
+    "install:backend": "npm install --prefix backend --include=dev",
+    "install:frontend": "npm install --prefix frontend --include=dev",
+    "setup": "npm install && npm run install:backend && npm run install:frontend",
+    "dev": "node scripts/run-dev.js",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend",
+    "start": "node scripts/run-dev.js",
+    "test": "echo \"Run tests via workspace scripts\""
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "npm run prisma:generate && npm run db:up && tsx watch src/server.ts",
+    "dev:nodb": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "db:up": "docker compose -f docker-compose.dev.yml up -d db",
+    "db:down": "docker compose -f docker-compose.dev.yml down",
+    "db:logs": "docker compose -f docker-compose.dev.yml logs -f db",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "lint": "tsc --noEmit",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/multipart": "^9.3.0",
+    "@prisma/client": "^6.19.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.2",
+    "fastify-plugin": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "prisma": "^6.19.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
